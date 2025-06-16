@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Marios Yiannakou">
+    <link rel="stylesheet" href="./style.css">
+    <title>GamePad Tester</title>
+</head>
+<body>
+    <h3># GamePad(s) connected: <span id="numOfGamepadsConnected">0</span></h3>
+
+    <table id="gamepadsTable">
+        <thead>
+            <th>Index</th>
+            <th>Gamepad</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="gamepads-0-index">0</td>
+                <td id="gamepads-0-label"></td>
+            </tr>
+            <tr>
+                <td id="gamepads-1-index">1</td>
+                <td id="gamepads-1-label"></td>
+            </tr>
+            <tr>
+                <td id="gamepads-2-index">2</td>
+                <td id="gamepads-2-label"></td>
+            </tr>
+            <tr>
+                <td id="gamepads-4-index">3</td>
+                <td id="gamepads-4-label"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button onclick="exportButtons()">Export to MFN</button>
+        <button onclick="clearTable()">Clear</button>
+    </div>
+
+    <table id="buttonPresses">
+        <thead>
+            <th>Index</th>
+            <th>Timestamp</th>
+            <th>Button(s)</th>
+            <th>Time Pressed (ms)</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script src="./const.js"></script>
+<script src="./controller.js"></script>
+<script src="./buttons.js"></script>
+</html>
