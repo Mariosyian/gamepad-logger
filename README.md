@@ -8,5 +8,7 @@ Currently supported controllers:
 Roadmap:
 - [ ] Successfully log button presses
     - [ ] Allow record / pause via UI
-- [ ] Export button presses
+    - [x] Understand press & hold
+    - [ ] Add trigger pressure variance [0,1]
+- [x] Export button presses
 - [ ] Push button presses to microcontroller for replay
