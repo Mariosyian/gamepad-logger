@@ -5,11 +5,12 @@
 
 const char* ssid = "EchoSense";
 const char* password = "12345678";  // Minimum 8 chars
+WebServer server(80);
 
-const int squarePin = 16;
-const int circlePin = 2;
 const int crossPin = 15;
+const int circlePin = 2;
 const int trianglePin = 4;
+const int squarePin = 16;
 
 const int upPin = -1;
 const int rightPin = -1;
@@ -17,8 +18,6 @@ const int downPin = -1;
 const int leftPin = -1;
 
 const int psPin = 17;
-
-WebServer server(80);
 
 void serveFile(const String& path) {
   if (SPIFFS.exists(path)) {
@@ -52,8 +51,7 @@ void buttonPress() {
 
 void buttonHold() {
   String pin = server.pathArg(0);
-  String state = server.pathArg(1);
-  String holdMs = server.pathArg(2);
+  String holdMs = server.pathArg(1);
   int gpio = pin.toInt();
   
   digitalWrite(gpio, HIGH);
@@ -71,17 +69,14 @@ void setup() {
   Serial.begin(115200);
 
   WiFi.softAP(ssid, password);
-  Serial.println("Access Point Started");
   Serial.print("IP address: ");
   Serial.println(WiFi.softAPIP());
 
-  /**
-   * TODO: Setup rest of pins here
-   * 
-   * Pin 16 = Cross
-   * ...
-   */
-  pinMode(15, OUTPUT);
+  pinMode(crossPin, OUTPUT);
+  pinMode(circlePin, OUTPUT);
+  pinMode(trianglePin, OUTPUT);
+  pinMode(squarePin, OUTPUT);
+  pinMode(psPin, OUTPUT);
 
   // Web server route
   server.on("/", HTTP_GET, handleRoot);
